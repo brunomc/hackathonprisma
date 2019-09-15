@@ -66,8 +66,8 @@ type Petition {
   title: String
   user: User!
   questions: [String!]!
-  createdAt: DateTime
-  updatedAt: DateTime
+  createdAt: DateTime!
+  updatedAt: DateTime!
 }
 
 type PetitionConnection {
@@ -118,8 +118,8 @@ type PetitionPreviousValues {
   id: ID!
   title: String
   questions: [String!]!
-  createdAt: DateTime
-  updatedAt: DateTime
+  createdAt: DateTime!
+  updatedAt: DateTime!
 }
 
 input PetitionScalarWhereInput {
@@ -482,6 +482,8 @@ type User {
   rg: String
   numeroCarteiraDeTrabalho: String
   pis: String
+  nomeDaMae: String
+  dataDeNascimento: String
   streetAddress: String
   addressNumber: String
   complement: String
@@ -495,8 +497,8 @@ type User {
   password: String!
   phone: String
   resetsPassword(where: ResetPasswordWhereInput, orderBy: ResetPasswordOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [ResetPassword!]
-  createdAt: DateTime
-  updatedAt: DateTime
+  createdAt: DateTime!
+  updatedAt: DateTime!
 }
 
 type UserConnection {
@@ -513,6 +515,8 @@ input UserCreateInput {
   rg: String
   numeroCarteiraDeTrabalho: String
   pis: String
+  nomeDaMae: String
+  dataDeNascimento: String
   streetAddress: String
   addressNumber: String
   complement: String
@@ -546,6 +550,8 @@ input UserCreateWithoutPetitionsInput {
   rg: String
   numeroCarteiraDeTrabalho: String
   pis: String
+  nomeDaMae: String
+  dataDeNascimento: String
   streetAddress: String
   addressNumber: String
   complement: String
@@ -568,6 +574,8 @@ input UserCreateWithoutResetsPasswordInput {
   rg: String
   numeroCarteiraDeTrabalho: String
   pis: String
+  nomeDaMae: String
+  dataDeNascimento: String
   streetAddress: String
   addressNumber: String
   complement: String
@@ -602,6 +610,10 @@ enum UserOrderByInput {
   numeroCarteiraDeTrabalho_DESC
   pis_ASC
   pis_DESC
+  nomeDaMae_ASC
+  nomeDaMae_DESC
+  dataDeNascimento_ASC
+  dataDeNascimento_DESC
   streetAddress_ASC
   streetAddress_DESC
   addressNumber_ASC
@@ -638,6 +650,8 @@ type UserPreviousValues {
   rg: String
   numeroCarteiraDeTrabalho: String
   pis: String
+  nomeDaMae: String
+  dataDeNascimento: String
   streetAddress: String
   addressNumber: String
   complement: String
@@ -649,8 +663,8 @@ type UserPreviousValues {
   status: UserStatus
   password: String!
   phone: String
-  createdAt: DateTime
-  updatedAt: DateTime
+  createdAt: DateTime!
+  updatedAt: DateTime!
 }
 
 enum UserStatus {
@@ -684,6 +698,8 @@ input UserUpdateInput {
   rg: String
   numeroCarteiraDeTrabalho: String
   pis: String
+  nomeDaMae: String
+  dataDeNascimento: String
   streetAddress: String
   addressNumber: String
   complement: String
@@ -706,6 +722,8 @@ input UserUpdateManyMutationInput {
   rg: String
   numeroCarteiraDeTrabalho: String
   pis: String
+  nomeDaMae: String
+  dataDeNascimento: String
   streetAddress: String
   addressNumber: String
   complement: String
@@ -740,6 +758,8 @@ input UserUpdateWithoutPetitionsDataInput {
   rg: String
   numeroCarteiraDeTrabalho: String
   pis: String
+  nomeDaMae: String
+  dataDeNascimento: String
   streetAddress: String
   addressNumber: String
   complement: String
@@ -761,6 +781,8 @@ input UserUpdateWithoutResetsPasswordDataInput {
   rg: String
   numeroCarteiraDeTrabalho: String
   pis: String
+  nomeDaMae: String
+  dataDeNascimento: String
   streetAddress: String
   addressNumber: String
   complement: String
@@ -884,6 +906,34 @@ input UserWhereInput {
   pis_not_starts_with: String
   pis_ends_with: String
   pis_not_ends_with: String
+  nomeDaMae: String
+  nomeDaMae_not: String
+  nomeDaMae_in: [String!]
+  nomeDaMae_not_in: [String!]
+  nomeDaMae_lt: String
+  nomeDaMae_lte: String
+  nomeDaMae_gt: String
+  nomeDaMae_gte: String
+  nomeDaMae_contains: String
+  nomeDaMae_not_contains: String
+  nomeDaMae_starts_with: String
+  nomeDaMae_not_starts_with: String
+  nomeDaMae_ends_with: String
+  nomeDaMae_not_ends_with: String
+  dataDeNascimento: String
+  dataDeNascimento_not: String
+  dataDeNascimento_in: [String!]
+  dataDeNascimento_not_in: [String!]
+  dataDeNascimento_lt: String
+  dataDeNascimento_lte: String
+  dataDeNascimento_gt: String
+  dataDeNascimento_gte: String
+  dataDeNascimento_contains: String
+  dataDeNascimento_not_contains: String
+  dataDeNascimento_starts_with: String
+  dataDeNascimento_not_starts_with: String
+  dataDeNascimento_ends_with: String
+  dataDeNascimento_not_ends_with: String
   streetAddress: String
   streetAddress_not: String
   streetAddress_in: [String!]

@@ -218,6 +218,10 @@ export type UserOrderByInput =
   | "numeroCarteiraDeTrabalho_DESC"
   | "pis_ASC"
   | "pis_DESC"
+  | "nomeDaMae_ASC"
+  | "nomeDaMae_DESC"
+  | "dataDeNascimento_ASC"
+  | "dataDeNascimento_DESC"
   | "streetAddress_ASC"
   | "streetAddress_DESC"
   | "addressNumber_ASC"
@@ -359,6 +363,34 @@ export interface UserWhereInput {
   pis_not_starts_with?: Maybe<String>;
   pis_ends_with?: Maybe<String>;
   pis_not_ends_with?: Maybe<String>;
+  nomeDaMae?: Maybe<String>;
+  nomeDaMae_not?: Maybe<String>;
+  nomeDaMae_in?: Maybe<String[] | String>;
+  nomeDaMae_not_in?: Maybe<String[] | String>;
+  nomeDaMae_lt?: Maybe<String>;
+  nomeDaMae_lte?: Maybe<String>;
+  nomeDaMae_gt?: Maybe<String>;
+  nomeDaMae_gte?: Maybe<String>;
+  nomeDaMae_contains?: Maybe<String>;
+  nomeDaMae_not_contains?: Maybe<String>;
+  nomeDaMae_starts_with?: Maybe<String>;
+  nomeDaMae_not_starts_with?: Maybe<String>;
+  nomeDaMae_ends_with?: Maybe<String>;
+  nomeDaMae_not_ends_with?: Maybe<String>;
+  dataDeNascimento?: Maybe<String>;
+  dataDeNascimento_not?: Maybe<String>;
+  dataDeNascimento_in?: Maybe<String[] | String>;
+  dataDeNascimento_not_in?: Maybe<String[] | String>;
+  dataDeNascimento_lt?: Maybe<String>;
+  dataDeNascimento_lte?: Maybe<String>;
+  dataDeNascimento_gt?: Maybe<String>;
+  dataDeNascimento_gte?: Maybe<String>;
+  dataDeNascimento_contains?: Maybe<String>;
+  dataDeNascimento_not_contains?: Maybe<String>;
+  dataDeNascimento_starts_with?: Maybe<String>;
+  dataDeNascimento_not_starts_with?: Maybe<String>;
+  dataDeNascimento_ends_with?: Maybe<String>;
+  dataDeNascimento_not_ends_with?: Maybe<String>;
   streetAddress?: Maybe<String>;
   streetAddress_not?: Maybe<String>;
   streetAddress_in?: Maybe<String[] | String>;
@@ -604,6 +636,8 @@ export interface UserUpdateInput {
   rg?: Maybe<String>;
   numeroCarteiraDeTrabalho?: Maybe<String>;
   pis?: Maybe<String>;
+  nomeDaMae?: Maybe<String>;
+  dataDeNascimento?: Maybe<String>;
   streetAddress?: Maybe<String>;
   addressNumber?: Maybe<String>;
   complement?: Maybe<String>;
@@ -626,6 +660,8 @@ export interface UserUpdateWithoutPetitionsDataInput {
   rg?: Maybe<String>;
   numeroCarteiraDeTrabalho?: Maybe<String>;
   pis?: Maybe<String>;
+  nomeDaMae?: Maybe<String>;
+  dataDeNascimento?: Maybe<String>;
   streetAddress?: Maybe<String>;
   addressNumber?: Maybe<String>;
   complement?: Maybe<String>;
@@ -882,6 +918,8 @@ export interface UserUpdateWithoutResetsPasswordDataInput {
   rg?: Maybe<String>;
   numeroCarteiraDeTrabalho?: Maybe<String>;
   pis?: Maybe<String>;
+  nomeDaMae?: Maybe<String>;
+  dataDeNascimento?: Maybe<String>;
   streetAddress?: Maybe<String>;
   addressNumber?: Maybe<String>;
   complement?: Maybe<String>;
@@ -903,6 +941,8 @@ export interface UserUpdateManyMutationInput {
   rg?: Maybe<String>;
   numeroCarteiraDeTrabalho?: Maybe<String>;
   pis?: Maybe<String>;
+  nomeDaMae?: Maybe<String>;
+  dataDeNascimento?: Maybe<String>;
   streetAddress?: Maybe<String>;
   addressNumber?: Maybe<String>;
   complement?: Maybe<String>;
@@ -959,6 +999,8 @@ export interface UserCreateWithoutPetitionsInput {
   rg?: Maybe<String>;
   numeroCarteiraDeTrabalho?: Maybe<String>;
   pis?: Maybe<String>;
+  nomeDaMae?: Maybe<String>;
+  dataDeNascimento?: Maybe<String>;
   streetAddress?: Maybe<String>;
   addressNumber?: Maybe<String>;
   complement?: Maybe<String>;
@@ -986,6 +1028,8 @@ export interface UserCreateInput {
   rg?: Maybe<String>;
   numeroCarteiraDeTrabalho?: Maybe<String>;
   pis?: Maybe<String>;
+  nomeDaMae?: Maybe<String>;
+  dataDeNascimento?: Maybe<String>;
   streetAddress?: Maybe<String>;
   addressNumber?: Maybe<String>;
   complement?: Maybe<String>;
@@ -1016,6 +1060,8 @@ export interface UserCreateWithoutResetsPasswordInput {
   rg?: Maybe<String>;
   numeroCarteiraDeTrabalho?: Maybe<String>;
   pis?: Maybe<String>;
+  nomeDaMae?: Maybe<String>;
+  dataDeNascimento?: Maybe<String>;
   streetAddress?: Maybe<String>;
   addressNumber?: Maybe<String>;
   complement?: Maybe<String>;
@@ -1088,6 +1134,8 @@ export interface UserPreviousValues {
   rg?: String;
   numeroCarteiraDeTrabalho?: String;
   pis?: String;
+  nomeDaMae?: String;
+  dataDeNascimento?: String;
   streetAddress?: String;
   addressNumber?: String;
   complement?: String;
@@ -1099,8 +1147,8 @@ export interface UserPreviousValues {
   status?: UserStatus;
   password: String;
   phone?: String;
-  createdAt?: DateTimeOutput;
-  updatedAt?: DateTimeOutput;
+  createdAt: DateTimeOutput;
+  updatedAt: DateTimeOutput;
 }
 
 export interface UserPreviousValuesPromise
@@ -1113,6 +1161,8 @@ export interface UserPreviousValuesPromise
   rg: () => Promise<String>;
   numeroCarteiraDeTrabalho: () => Promise<String>;
   pis: () => Promise<String>;
+  nomeDaMae: () => Promise<String>;
+  dataDeNascimento: () => Promise<String>;
   streetAddress: () => Promise<String>;
   addressNumber: () => Promise<String>;
   complement: () => Promise<String>;
@@ -1138,6 +1188,8 @@ export interface UserPreviousValuesSubscription
   rg: () => Promise<AsyncIterator<String>>;
   numeroCarteiraDeTrabalho: () => Promise<AsyncIterator<String>>;
   pis: () => Promise<AsyncIterator<String>>;
+  nomeDaMae: () => Promise<AsyncIterator<String>>;
+  dataDeNascimento: () => Promise<AsyncIterator<String>>;
   streetAddress: () => Promise<AsyncIterator<String>>;
   addressNumber: () => Promise<AsyncIterator<String>>;
   complement: () => Promise<AsyncIterator<String>>;
@@ -1182,6 +1234,8 @@ export interface User {
   rg?: String;
   numeroCarteiraDeTrabalho?: String;
   pis?: String;
+  nomeDaMae?: String;
+  dataDeNascimento?: String;
   streetAddress?: String;
   addressNumber?: String;
   complement?: String;
@@ -1193,8 +1247,8 @@ export interface User {
   status?: UserStatus;
   password: String;
   phone?: String;
-  createdAt?: DateTimeOutput;
-  updatedAt?: DateTimeOutput;
+  createdAt: DateTimeOutput;
+  updatedAt: DateTimeOutput;
 }
 
 export interface UserPromise extends Promise<User>, Fragmentable {
@@ -1205,6 +1259,8 @@ export interface UserPromise extends Promise<User>, Fragmentable {
   rg: () => Promise<String>;
   numeroCarteiraDeTrabalho: () => Promise<String>;
   pis: () => Promise<String>;
+  nomeDaMae: () => Promise<String>;
+  dataDeNascimento: () => Promise<String>;
   streetAddress: () => Promise<String>;
   addressNumber: () => Promise<String>;
   complement: () => Promise<String>;
@@ -1248,6 +1304,8 @@ export interface UserSubscription
   rg: () => Promise<AsyncIterator<String>>;
   numeroCarteiraDeTrabalho: () => Promise<AsyncIterator<String>>;
   pis: () => Promise<AsyncIterator<String>>;
+  nomeDaMae: () => Promise<AsyncIterator<String>>;
+  dataDeNascimento: () => Promise<AsyncIterator<String>>;
   streetAddress: () => Promise<AsyncIterator<String>>;
   addressNumber: () => Promise<AsyncIterator<String>>;
   complement: () => Promise<AsyncIterator<String>>;
@@ -1293,6 +1351,8 @@ export interface UserNullablePromise
   rg: () => Promise<String>;
   numeroCarteiraDeTrabalho: () => Promise<String>;
   pis: () => Promise<String>;
+  nomeDaMae: () => Promise<String>;
+  dataDeNascimento: () => Promise<String>;
   streetAddress: () => Promise<String>;
   addressNumber: () => Promise<String>;
   complement: () => Promise<String>;
@@ -1505,8 +1565,8 @@ export interface PetitionPreviousValues {
   id: ID_Output;
   title?: String;
   questions: String[];
-  createdAt?: DateTimeOutput;
-  updatedAt?: DateTimeOutput;
+  createdAt: DateTimeOutput;
+  updatedAt: DateTimeOutput;
 }
 
 export interface PetitionPreviousValuesPromise
@@ -1558,8 +1618,8 @@ export interface Petition {
   id: ID_Output;
   title?: String;
   questions: String[];
-  createdAt?: DateTimeOutput;
-  updatedAt?: DateTimeOutput;
+  createdAt: DateTimeOutput;
+  updatedAt: DateTimeOutput;
 }
 
 export interface PetitionPromise extends Promise<Petition>, Fragmentable {
