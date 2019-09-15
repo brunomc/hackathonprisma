@@ -1,1 +1,0 @@
-web: npm run build-babel && node build/index.js
