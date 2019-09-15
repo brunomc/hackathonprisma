@@ -9,6 +9,12 @@ const Resolver = {
         name: (parent, args, context, info) => {
             return parent.name
         },
+        nomeDaMae: (parent, args, context, info) => {
+            return parent.nomeDaMae
+        },
+        dataDeNascimento: (parent, args, context, info) => {
+            return parent.dataDeNascimento
+        },
         surname: (parent, args, context, info) => {
             return parent.surname
         },
