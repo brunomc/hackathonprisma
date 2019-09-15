@@ -47,7 +47,7 @@ const Content = (props) => {
   const [skipped, setSkipped] = React.useState(new Set());
   const [initialOptions, setInitialOptions] = useState([]);
   const getSteps = () => {
-  return ['Select campaign settings', 'Create an ad group', 'Create an ad', 'Finalizar'];
+  return ['O que é verba recisória?', 'Você quer conferir quais verbas?', 'Estimativa de valor', 'Tem interesse em entrar com um processo judicial?'];
 }
   const steps = getSteps();
 
@@ -70,7 +70,7 @@ const getStepContent = (step) => {
     case 2:
       return 'This is the bit I really care about!';
       case 3:
-      return 'Finalizar';
+      return 'Sim';
     default:
       return 'Unknown step';
   }
@@ -135,9 +135,7 @@ const getStepContent = (step) => {
       <div>
         {activeStep === steps.length ? (
           <div>
-            <Typography className={classes.instructions}>
-              Todos os passos para xxx foram finalizados ...instrucoes...
-            </Typography>
+             {navigate('/register')}
             <Button onClick={handleReset} className={classes.button}>
               Reset
             </Button>
@@ -156,7 +154,7 @@ const getStepContent = (step) => {
                 onClick={handleNext}
                 className={classes.button}
               >
-                {activeStep === steps.length - 1 ? 'Finalizado' : 'Avançar'}
+                {activeStep === steps.length - 1 ? 'Sim' : 'Avançar'}
               </Button>
             </div>
           </div>

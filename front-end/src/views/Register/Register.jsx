@@ -63,89 +63,56 @@ const RegisterContent = (props) => {
     }; // callback when validation pass
     return (
         <Container maxWidth="sm">
-            <Title>Register</Title>
+            <Title>Informações de Cadastro</Title>
             <Form onSubmit={handleSubmit(onSubmit)}>
                 <Dropzone reg={register} image={setImage} />
                 <FormInputs
-                    ncols={['6', '6', '6', '6', '6', '6']}
+                    ncols={['12', '12', '6', '6', '6']}
                     properties={[
                         {
                             id: "name",
                             name: 'name',
-                            label: 'Name',
+                            label: 'Nome',
                             inputRef: register,
-                            validation: {
-                                required: 'Required name'
-                            },
+                            validation: { },
                             error: errors
                         },
                         {
-                            id: "email",
-                            name: 'email',
-                            label: 'Email',
+                            id: "surname",
+                            name: 'surname',
+                            label: 'Sobrenome',
                             inputRef: register,
-                            validation: {
-                                required: 'Required email',
-                                pattern: {
-                                    value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,
-                                    message: "Invalid email address"
-                                }
-                            },
+                            validation: {},
                             error: errors
                         },
                         {
-                            id: "password",
-                            name: 'password',
-                            label: 'Password',
+                            id: "cpf",
+                            name: 'cpf',
+                            label: 'CPF',
                             inputRef: register,
-                            validation: {
-                                required: 'Required password'
-                            },
+                            validation: {},
+                            error: errors
+                        },
+                        {
+                            id: "rg",
+                            name: 'rg',
+                            label: 'RG',
+                            inputRef: register,
+                            validation: {},
                             error: errors,
-                            type: "password",
-                            required: false
                         },
                         {
-                            id: "repeatPassword",
-                            name: 'repeatPassword',
-                            label: 'Repeat Password',
-                            inputRef: register,
-                            validation: {
-                                required: 'Required password',
-                                validate: value => value === getValues()['password']
-                            },
-                            error: errors,
-                            type: "password",
-                            required: true
-                        },
-                        {
-                            id: "youAre",
-                            name: 'youAre',
-                            label: 'You are?',
-                            inputRef: register,
-                            required: true,
-                            type: "select",
-                            options: ['HACKER'],
-                            validateMessage: validateYouAre,
-                            setSelect: setYouAre
-                        },
-                        {
-                            id: "expertise",
-                            name: 'expertise',
-                            label: 'Your Expertise?',
-                            inputRef: register,
-                            required: true,
-                            type: "select-multiple",
-                            validateMessage: validateExpertises,
-                            options: ['IT', 'DESIGN', 'BUSINESS', 'OTHERS'],
-                            setMultipleSelect: setExpertises
+                            id: "numeroCarteiraDeTrabalho",
+                            name: 'numeroCarteiraDeTrabalho',
+                            label: 'Número da Carteira de Trabalho',
+                            inputRef: register
                         }
                     ]}
                 />
                 <input type="hidden" name="youAre" />
                 <input type="hidden" name="expertises" />
                 <input type="hidden" name="avatar" ref={register} />
-                <h5>You have a account? <a href="/login" >Login</a></h5>
+                <h5>Você já tem cadastro? <a href="/login" >Acessar</a></h5>
                 <Button variant="contained" type='submit' >
                     {loading ? <CircularProgress disableShrink /> : "Register"}
                 </Button>
@@ -155,7 +122,7 @@ const RegisterContent = (props) => {
 }
 const Register = (props) => {
     return (<Layout
-        backgroundColor="#66B9BF"
+        backgroundColor=""
         withAppBar={false}
         menus={menus}
         withMenu={false}
