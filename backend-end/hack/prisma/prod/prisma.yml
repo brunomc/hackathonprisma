@@ -1,6 +1,0 @@
-endpoint: https://us1.prisma.sh/allancontesini/hackathon-prisma/dev
-datamodel: datamodel.prisma
-
-generate:
-  - generator: javascript-client
-    output: ./generated/
